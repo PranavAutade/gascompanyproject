@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <h2>Request Status</h2>
+  <ul>
+    {% for request in requests %}
+      <li>
+        <a href="{% url 'request_detail' request.pk %}">{{ request.subject }}</a> - {{ request.status }} - Created at: {{ request.created_at }}
+      </li>
+    {% empty %}
+      <li>No requests found.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

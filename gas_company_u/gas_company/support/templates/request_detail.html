@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <h2>Request Detail</h2>
+  <p><strong>Subject:</strong> {{ request.subject }}</p>
+  <p><strong>Message:</strong> {{ request.message }}</p>
+  <p><strong>Status:</strong> {{ request.status }}</p>
+  <p><strong>Assigned Representative:</strong> {{ request.assigned_rep }}</p>
+  <p><strong>Created at:</strong> {{ request.created_at }}</p>
+  <a href="{% url 'update_request_status' request.pk %}">Update Status</a>
+  <a href="{% url 'assign_rep' request.pk %}">Assign Representative</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <h2>My Service Requests</h2>
+  <ul>
+    {% for request in requests %}
+      <li>
+        {{ request.request_type }} - {{ request.status }} - Submitted at: {{ request.submitted_at }}
+        {% if request.resolved_at %}
+          - Resolved at: {{ request.resolved_at }}
+        {% endif %}
+      </li>
+    {% empty %}
+      <li>No requests found.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
